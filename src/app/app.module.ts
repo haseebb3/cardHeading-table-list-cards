@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { TabHeadingComponent } from './components/tab-heading/tab-heading.component';
+import { VerticalTabHeadingComponent } from './components/vertical-tab-heading/vertical-tab-heading.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TabHeadingComponent
+    TabHeadingComponent,
+    VerticalTabHeadingComponent
   ],
   imports: [
     BrowserModule
