@@ -1,0 +1,84 @@
+<h1 class="bg-primary text-white text-center p-2">Tab Heading Task</h1>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation" *ngFor="let skill of skills">
+                    <a class="nav-link" href="javascript:;" (click)="onSkillChange(skill)" [ngClass]="{
+              active: currentSkill.includes(skill)
+            }">{{ skill }}</a>
+                </li>
+                <!-- <li class="nav-item" role="presentation">
+                    <a class="nav-link" href="javascript:;" 
+                    (click)="onSkillChange('DOCKER')"
+                    [ngClass]="{
+                        active : currentSkill.includes('DOCKER')
+                    }"
+                    >DOCKER</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" href="javascript:;"
+                    (click)="onSkillChange('CONTAINARIZATION')"
+                    [ngClass]="{
+                        active : currentSkill.includes('CONTAINARIZATION')
+                    }"
+                    >CONTAINARIZATION</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" href="javascript:;"
+                    (click)="onSkillChange('CI/CD')"
+                    [ngClass]="{
+                        active : currentSkill.includes('CI/CD')
+                    }"
+                    >CI/CD</a>
+                </li> -->
+            </ul>
+            <hr />
+
+            <p *ngIf="currentSkill.includes('AWS')">
+                AWS ipsum dolor sit amet consectetur adipisicing elit. Beatae nobis
+                voluptas autem neque, quam obcaecati rerum cupiditate. Consectetur quae
+                id dolor, commodi ipsum molestiae quam, minima explicabo, quos corrupti
+                ut?
+            </p>
+            <p *ngIf="currentSkill.includes('DOCKER')">
+                DOCKER ipsum dolor sit amet consectetur adipisicing elit. Beatae nobis
+                voluptas autem neque, quam obcaecati rerum cupiditate. Consectetur quae
+                id dolor, commodi ipsum molestiae quam, minima explicabo, quos corrupti
+                ut?
+            </p>
+            <p *ngIf="currentSkill.includes('CONTAINARIZATION')">
+                CONTAINARIZATION ipsum dolor sit amet consectetur adipisicing elit.
+                Beatae nobis voluptas autem neque, quam obcaecati rerum cupiditate.
+                Consectetur quae id dolor, commodi ipsum molestiae quam, minima
+                explicabo, quos corrupti ut?
+            </p>
+            <p *ngIf="currentSkill.includes('CI/CD')">
+                CI/CD ipsum dolor sit amet consectetur adipisicing elit. Beatae nobis
+                voluptas autem neque, quam obcaecati rerum cupiditate. Consectetur quae
+                id dolor, commodi ipsum molestiae quam, minima explicabo, quos corrupti
+                ut?
+            </p>
+
+            <hr style="height: 3px" color="red" />
+
+            <ul class="nav nav-pills mb-3 mt-5" id="pills-tab" role="tablist">
+                <li class="nav-item mr-4" role="presentation" *ngFor="let li of frontEndSkills">
+                    <a class="nav-link" href="javascript:;" [ngClass]="{
+              active: selectedSkill
+                .toLocaleLowerCase()
+                .includes(li.title.toLowerCase())
+            }" (click)="onSkillChange2(li.title)">{{ li.title }}</a>
+                </li>
+            </ul>
+            <hr />
+
+            <ng-container *ngFor="let content of frontEndSkills">
+                <p *ngIf="selectedSkill.toLocaleLowerCase().includes(content.title.toLowerCase())" [innerHTML] = "content.content"></p>
+            </ng-container>
+
+            
+        </div>
+    </div>
+</div>
